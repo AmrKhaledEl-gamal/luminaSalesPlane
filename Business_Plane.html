@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumina AI - Strategy Book</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background: #050816;
+      color: white;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding: 35px 40px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(120, 92, 255, 0.18), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(0, 212, 255, 0.10), transparent 30%),
+        #050816;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .topbar,
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #9e92ff;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .line {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 10px 0 20px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    .hero h1 {
+      font-size: 92px;
+      line-height: 1;
+      margin-bottom: 28px;
+      background: linear-gradient(90deg, #ffffff, #9d90ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      color: #9f94ff;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 24px;
+      color: #b5bfd1;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .tag {
+      color: white;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .section-title {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .section-subtitle {
+      color: #a9b4c7;
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      max-width: 900px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+      transition: 0.3s ease;
+      height: 100%;
+    }
+
+    .card h3 {
+      color: #9d90ff;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .card ul {
+      padding-right: 20px;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+      color: #d7e1ef;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .quote {
+      margin-top: 15px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, rgba(120, 92, 255, 0.12), rgba(0, 212, 255, 0.08));
+      border: 1px solid rgba(157, 144, 255, 0.2);
+      border-right: 5px solid #8f82ff;
+      border-radius: 20px;
+      padding: 20px;
+      color: white;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .score-boxes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .score {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 28px;
+      text-align: center;
+    }
+
+    .score h4 {
+      color: #9d90ff;
+      margin-bottom: 14px;
+      font-size: 17px;
+    }
+
+    .score .number {
+      font-size: 56px;
+      font-weight: 800;
+      color: white;
+    }
+
+    .page-break {
+      page-break-after: always;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+      align-items: stretch;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(157, 144, 255, 0.12);
+      border: 1px solid rgba(157, 144, 255, 0.25);
+      border-radius: 50px;
+      color: #9d90ff;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .badge-alert {
+      background: rgba(255, 107, 107, 0.1);
+      border: 1px solid rgba(255, 107, 107, 0.25);
+      color: #ff6b6b;
+    }
+
+    .badge-success {
+      background: rgba(78, 205, 196, 0.1);
+      border: 1px solid rgba(78, 205, 196, 0.25);
+      color: #4ecdc4;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 25px;
+    }
+
+    .comp-box {
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .comp-before {
+      background: rgba(255, 107, 107, 0.03);
+      border: 1px solid rgba(255, 107, 107, 0.1);
+    }
+
+    .comp-after {
+      background: rgba(78, 205, 196, 0.04);
+      border: 1px solid rgba(78, 205, 196, 0.15);
+    }
+
+    .comp-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .comp-before .comp-title {
+      color: #ff6b6b;
+    }
+
+    .comp-after .comp-title {
+      color: #4ecdc4;
+    }
+
+    .comp-list {
+      list-style: none;
+      padding: 0 !important;
+    }
+
+    .comp-list li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      color: #d7e1ef;
+    }
+
+    .comp-before .comp-list li::before {
+      content: "✕";
+      color: #ff6b6b;
+      font-weight: bold;
+    }
+
+    .comp-after .comp-list li::before {
+      content: "✓";
+      color: #4ecdc4;
+      font-weight: bold;
+    }
+
+    .slogan-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-right: 4px solid #9d90ff;
+      padding: 18px 24px;
+      border-radius: 16px;
+      font-size: 17px;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    .price-plans {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 25px;
+    }
+
+    .plan-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 24px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .plan-card.premium {
+      background: linear-gradient(180deg, rgba(157, 144, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(157, 144, 255, 0.25);
+    }
+
+    .plan-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .plan-card.premium .plan-name {
+      color: #9d90ff;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+      
+      body {
+        margin: 0;
+        background: #050816 !important;
+      }
+      
+      .page {
+        width: 297mm;
+        height: 210mm;
+        min-height: 210mm;
+        margin: 0;
+        padding: 40px 50px;
+        page-break-after: always;
+        page-break-inside: avoid;
+        background: radial-gradient(circle at top right, rgba(120, 92, 255, 0.18), transparent 30%), radial-gradient(circle at bottom left, rgba(0, 212, 255, 0.10), transparent 30%), #050816 !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+
+      .grid,
+      .grid-3,
+      .score-boxes,
+      .comparison-grid,
+      .price-plans {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 62px;
+      }
+
+      .hero h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PAGE 1: COVER -->
+  <section class="page page-break"
+    style="justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, rgba(120, 92, 255, 0.25), transparent 60%), #050816; padding: 40px;">
+
+    <div
+      style="margin-top: auto; margin-bottom: auto; max-width: 800px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+      <h1
+        style="font-size: 82px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(90deg, #ffffff, #9d90ff, #00d4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Lumina AI
+      </h1>
+
+      <h2 style="font-size: 36px; color: #9d90ff; font-weight: 700; margin-bottom: 30px; letter-spacing: 1px;">
+        Strategy Book • كتاب الاستراتيجية
+      </h2>
+
+      <div
+        style="height: 1px; width: 150px; background: linear-gradient(90deg, transparent, rgba(157, 144, 255, 0.5), transparent); margin-bottom: 35px;">
+      </div>
+
+      <p
+        style="font-size: 22px; color: #b5bfd1; max-width: 600px; line-height: 1.8; margin-bottom: 50px; font-weight: 300;">
+        الخطة التسويقية واستراتيجية تحويل المبيعات المتكاملة للمنصة
+        بناءً على منهجية كتاب "خطة تسويق في صفحة واحدة" للكاتب ألن ديب.
+      </p>
+
+      <div style="display: flex; gap: 15px; justify-content: center;">
+        <span class="badge"
+          style="background: rgba(157, 144, 255, 0.15); border: 1px solid rgba(157, 144, 255, 0.3); font-size: 15px; padding: 8px 20px;">Market
+          Validation</span>
+        <span class="badge"
+          style="background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); color: #00d4ff; font-size: 15px; padding: 8px 20px;">Lead
+          Nurturing</span>
+        <span class="badge"
+          style="background: rgba(157, 144, 255, 0.15); border: 1px solid rgba(157, 144, 255, 0.3); font-size: 15px; padding: 8px 20px;">Sales
+          Conversion</span>
+      </div>
+    </div>
+
+    <div
+      style="margin-top: auto; width: 100%; display: flex; justify-content: space-between; align-items: center; color: rgba(157, 144, 255, 0.6); font-size: 15px;">
+      <div>Lumina AI © 2026</div>
+      <div style="font-weight: 700; letter-spacing: 2px; color: white;">LUMINA AI BUSINESS DEVELOPMENT</div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 2: STEP 01 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 01 • MARKET VALIDATION</div>
+        <div><strong>Lumina AI</strong> — MVP Strategy</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 01 — PVP Analysis</h1>
+
+      <p class="section-subtitle">
+        تحليل السوق وتقييم أفضل فكرة قابلة للتنفيذ بناءً على القيمة السوقية، الربحية، ومدى توافقها مع رؤية المنتج.
+      </p>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Business Scope</h3>
+          <ul>
+            <li>AI Knowledge Assistant</li>
+            <li>AI Customer Support</li>
+            <li>AI Internal Search</li>
+            <li>AI Agents</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Willingness To Pay</h3>
+          <ul>
+            <li>تقليل موظفين الدعم</li>
+            <li>تسريع الرد على العملاء</li>
+            <li>تقليل تكلفة الدعم</li>
+            <li>تحسين تجربة العملاء</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="score-boxes">
+        <div class="score">
+          <h4>Personal Fulfillment</h4>
+          <div class="number">9/10</div>
+        </div>
+
+        <div class="score">
+          <h4>Value To Market</h4>
+          <div class="number">8.5/10</div>
+        </div>
+
+        <div class="score">
+          <h4>Profitability</h4>
+          <div class="number">8/10</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 3: STEP 02 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 02 • MVP DIRECTION</div>
+        <div><strong>Lumina AI</strong> — MVP Strategy</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 02 — MVP Direction</h1>
+
+      <p class="section-subtitle">
+        تحديد أفضل نقطة دخول للسوق ونطاق تطبيق المنتج الأولي القابل للتطبيق للتوسع التدريجي لاحقاً.
+      </p>
+
+      <div class="quote" style="margin-top: 0;">
+        <strong>أفضل نقطة دخول للسوق:</strong>
+        <br><br>
+        <span style="color: #9d90ff; font-size: 26px; font-weight: 700;">AI Customer Support For Marketing
+          Agencies</span>
+        <br><br>
+        <strong>MVP قابل للتوسع لاحقًا إلى:</strong>
+        <br>
+        • AI Agents
+        <br>
+        • AI Internal Search
+        <br>
+        • AI Knowledge Assistant
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Target Audience</h3>
+          <ul>
+            <li>شركات الخدمات</li>
+            <li>وكالات التسويق</li>
+            <li>المتاجر الإلكترونية</li>
+            <li>E-Commerce Brands</li>
+            <li>الشركات الصغيرة والمتوسطة</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Main Features</h3>
+          <ul>
+            <li>ردود AI تلقائية</li>
+            <li>دعم 24/7</li>
+            <li>لوحة تحكم وإحصائيات</li>
+            <li>تكامل مع Website & WhatsApp</li>
+            <li>تخصيص حسب بيانات الشركة</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 4: STEP 04 - PART 1 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 04 (1/3) • OVERVIEW & LEAD MAGNET</div>
+        <div><strong>Lumina AI</strong> — Lead Capture System</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 04 — Lead Capture System • الجزء الأول</h1>
+
+      <p class="section-subtitle">
+        جذب العملاء المحتملين وتحويل الزوار إلى Leads يمكن التواصل معهم وتحويلهم لاحقًا إلى عملاء فعليين من خلال تجربة
+        حقيقية سريعة.
+      </p>
+
+      <div class="quote" style="margin-top: 0;">
+        <strong>الهدف الحقيقي: Lumina AI لا تبيع مجرد “AI Chatbot”. المنصة تبيع:</strong>
+        <br><br>
+        <span style="color: #9d90ff; font-size: 24px; font-weight: 700;">سرعة الوصول للمعلومات • تقليل الوقت الضائع •
+          تحسين خدمة العملاء • الرد السريع على العملاء • تنظيم بيانات الشركة • تقليل الضغط على الموظفين</span>
+      </div>
+
+      <div class="grid">
+
+        <div class="card" style="padding: 35px;">
+          <div class="badge badge-alert">التحديات (الفئات المستهدفة)</div>
+          <h3 style="font-size: 26px; margin-bottom: 20px;">الشركات التي تعاني من:</h3>
+          <ul style="font-size: 18px; line-height: 2;">
+            <li>بطء الرد على العملاء وضغط مستمر على خدمة العملاء.</li>
+            <li>صعوبة البحث داخل الملفات وكثرة بيانات غير منظمة.</li>
+            <li>ضغط هائل على WhatsApp.</li>
+            <li>فقدان العملاء بسبب التأخير.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="padding: 35px;">
+          <div class="badge badge-success">القطاعات المستهدفة</div>
+          <h3 style="font-size: 26px; margin-bottom: 20px;">أين نركز جهودنا؟</h3>
+          <ul style="font-size: 18px; line-height: 2;">
+            <li>العيادات والمراكز الطبية وشركات العقارات.</li>
+            <li>المتاجر الإلكترونية وشركات الشحن واللوجستيات.</li>
+            <li>الجامعات والمؤسسات التعليمية.</li>
+            <li>فرق خدمة العملاء وأقسام الـ HR.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="grid" style="margin-top: 30px;">
+        <div class="card" style="padding: 30px; grid-column: span 2;">
+          <div class="badge">Lead Magnet Strategy</div>
+          <h3 style="font-size: 26px; margin-bottom: 15px;">إعطاء العميل تجربة حقيقية وسريعة (WOW Moment)</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+              <strong style="color: #9d90ff; font-size: 20px; display: block; margin-bottom: 8px;">1. “جرّب AI Assistant
+                على بيانات شركتك”</strong>
+              <p style="font-size: 17px; color: #cbd5e0; line-height: 1.8;">
+                يستطيع العميل رفع ملفات الشركة (PDF أو FAQ) وتجربة الـ AI مباشرة لرؤية الردود من بياناته الحقيقية.
+              </p>
+            </div>
+            <div>
+              <strong style="color: #9d90ff; font-size: 20px; display: block; margin-bottom: 8px;">2. WhatsApp AI
+                Demo</strong>
+              <p style="font-size: 17px; color: #cbd5e0; line-height: 1.8;">
+                توفير رقم WhatsApp تجريبي للعميل لإجراء محادثة مباشرة مع الـ AI، مما يظهر سرعة الرد وجودة العربية.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 5: STEP 04 - PART 2 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 04 (2/3) • FUNNEL STAGES 1-3</div>
+        <div><strong>Lumina AI</strong> — Lead Capture System</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 04 — Lead Capture System • الجزء الثاني</h1>
+
+      <p class="section-subtitle">
+        بناء قمع المبيعات (Sales Funnel) عبر جلب الزيارات، تحويلهم بصفحة الهبوط، وجمع بياناتهم الأساسية.
+      </p>
+
+      <div class="grid-3">
+
+        <!-- Column 1: Traffic -->
+        <div class="card">
+          <div class="badge">المرحلة 1: جلب الزيارات</div>
+          <h3 style="font-size: 22px; margin-bottom: 15px;">مصادر الترافيك</h3>
+          <ul style="font-size: 17px; line-height: 1.8; list-style: none; padding: 0;">
+            <li style="margin-bottom: 12px;">
+              <strong style="color: #9d90ff; display: block; font-size: 18px;">Organic</strong>
+              LinkedIn Content, TikTok Videos, Instagram Reels, Facebook Content, SEO.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong style="color: #9d90ff; display: block; font-size: 18px;">Paid Ads</strong>
+              Facebook Ads, Instagram Ads, LinkedIn Ads.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong style="color: #9d90ff; display: block; font-size: 18px;">Outreach</strong>
+              التواصل المباشر عبر رسائل LinkedIn، WhatsApp، وEmail Outreach.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Landing Page -->
+        <div class="card">
+          <div class="badge badge-success">المرحلة 2: Landing Page</div>
+          <h3 style="font-size: 22px; margin-bottom: 15px;">تحويل الزائر إلى Lead</h3>
+          <p style="font-size: 17px; color: #cbd5e0; line-height: 1.7; margin-bottom: 15px;">
+            <strong>العنوان:</strong> "حوّل بيانات شركتك إلى AI Assistant ذكي خلال دقائق."
+          </p>
+          <ul style="font-size: 17px; line-height: 1.8; list-style: none; padding: 0;">
+            <li style="margin-bottom: 12px;">
+              <strong style="color: #9d90ff; display: block; font-size: 18px;">المشكلة والحل:</strong>
+              بطء الرد مقابل الرد الآلي وتشغيل المساعد الذكي.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong style="color: #9d90ff; display: block; font-size: 18px;">Call To Action:</strong>
+              "جرّب مجانًا" - Demo مباشر للرد، البحث، وتجربة WhatsApp AI.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Data Collection -->
+        <div class="card">
+          <div class="badge badge-alert">المرحلة 3: جمع البيانات</div>
+          <h3 style="font-size: 22px; margin-bottom: 15px;">استهداف دقيق</h3>
+          <p style="font-size: 17px; color: #cbd5e0; line-height: 1.7; margin-bottom: 15px;">
+            نجمع البيانات الأساسية قبل التجربة لضمان الفهم والمتابعة:
+          </p>
+          <ul style="font-size: 17px; line-height: 1.8; margin-bottom: 15px;">
+            <li>الاسم و اسم الشركة</li>
+            <li>البريد الإلكتروني ورقم الهاتف</li>
+            <li>نوع النشاط</li>
+          </ul>
+          <div class="quote" style="font-size: 16px; margin: 0; padding: 15px; border-radius: 16px;">
+            <strong>الهدف:</strong> فهم نوع العميل، تحديد احتياجاته، وبدء نظام الـ Follow-Up.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 6: STEP 04 - PART 3 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 04 (3/3) • EXPERIENCE & KPIs</div>
+        <div><strong>Lumina AI</strong> — Lead Capture System</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 04 — Lead Capture System • الجزء الثالث</h1>
+
+      <p class="section-subtitle">
+        التجربة الفورية، المتابعة اللاحقة، قياس الأداء والأولويات لتحقيق النتيجة المتوقعة.
+      </p>
+
+      <div class="comparison-grid" style="grid-template-columns: 1fr 1fr; margin-top: 0;">
+        <div class="card" style="padding: 30px;">
+          <div class="badge">المرحلة 4: التجربة الفورية</div>
+          <ul style="font-size: 18px; line-height: 2; margin-top: 15px;">
+            <li>العميل يقوم برفع الملفات وتجربة الـ AI واختبار الردود.</li>
+            <li>تجربة الـ Widget أو WhatsApp بشكل تفاعلي.</li>
+            <li><strong>المطلوب:</strong> Setup سريع، واجهة سهلة، ردود دقيقة، ودعم عربي قوي.</li>
+          </ul>
+        </div>
+        <div class="card" style="padding: 30px;">
+          <div class="badge badge-success">المرحلة 5: المتابعة</div>
+          <ul style="font-size: 18px; line-height: 2; margin-top: 15px;">
+            <li>Email & WhatsApp Follow-Up.</li>
+            <li>Demo Meetings & Sales Calls.</li>
+            <li><strong>الهدف:</strong> بناء الثقة وتوضيح قيمة المنتج لزيادة احتمالية الاشتراك.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 25px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: start;">
+        <div>
+          <div class="badge">الرسائل التسويقية والمميزات</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="slogan-card" style="font-size: 15px; padding: 14px;">"رد على عملائك فورًا باستخدام بيانات
+              شركتك."</div>
+            <div class="slogan-card" style="font-size: 15px; padding: 14px;">"وفّر ساعات يوميًا في البحث داخل الملفات."
+            </div>
+            <div class="slogan-card" style="font-size: 15px; padding: 14px;">"شغّل AI Assistant لشركتك خلال دقائق."
+            </div>
+            <div class="slogan-card" style="font-size: 15px; padding: 14px;">AI مدرب على الشركة & Dashboard Analytics
+            </div>
+            <div class="slogan-card" style="font-size: 15px; padding: 14px;">Website Widget & WhatsApp AI</div>
+            <div class="slogan-card" style="font-size: 15px; padding: 14px;">دعم اللغة العربية & Human Handoff</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="badge badge-alert">الأولويات الحالية & مؤشرات الأداء</div>
+          <div
+            style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 20px; border-radius: 16px;">
+            <strong style="color: #9d90ff; font-size: 17px; display: block; margin-bottom: 10px;">الأولويات
+              الأربعة:</strong>
+            <ul style="font-size: 15px; line-height: 1.6; padding-right: 18px; margin-bottom: 20px;">
+              <li>إطلاق WhatsApp Integration بالكامل.</li>
+              <li>إنشاء Landing Page احترافية مع Demo واضح.</li>
+              <li>محتوى يوضح: الاستخدامات، قوة العربية، والرد من البيانات.</li>
+              <li>تحسين سرعة ودقة الـ AI أثناء التجربة.</li>
+            </ul>
+            <strong style="color: #9d90ff; font-size: 17px; display: block; margin-bottom: 10px;">أهم الـ KPIs:</strong>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <span
+                style="font-size: 13px; background: rgba(0,0,0,0.2); padding: 8px 12px; border-radius: 8px;">Conversion
+                Rate</span>
+              <span style="font-size: 13px; background: rgba(0,0,0,0.2); padding: 8px 12px; border-radius: 8px;">Cost
+                Per Lead</span>
+              <span style="font-size: 13px; background: rgba(0,0,0,0.2); padding: 8px 12px; border-radius: 8px;">DAU &
+                Usage Rate</span>
+              <span
+                style="font-size: 13px; background: rgba(0,0,0,0.2); padding: 8px 12px; border-radius: 8px;">WhatsApp
+                Engagement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 7: STEP 05 - PART 1 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 05 (1/2) • AUDIENCE & JOURNEY</div>
+        <div><strong>Lumina AI</strong> — Marketing Strategy</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 05 — Lead Nurturing System • الجزء الأول</h1>
+
+      <p class="section-subtitle">
+        تحديد الجمهور والقطاعات المستهدفة ورسم رحلة العميل نحو التجربة الأولى للمنصة.
+      </p>
+
+      <div class="grid">
+
+        <div class="card" style="padding: 35px;">
+          <div class="badge">الفئة المستهدفة</div>
+          <h3 style="font-size: 28px; margin-bottom: 20px;">العملاء المستهدفون</h3>
+          <p style="font-size: 18px; color: #a9b4c7; line-height: 1.8; margin-bottom: 15px;">
+            نستهدف الشركات والمؤسسات التي تواجه التحديات التشغيلية التالية:
+          </p>
+          <ul style="font-size: 18px; line-height: 2;">
+            <li>بطء الاستجابة لخدمة العملاء وفقدان المشترين.</li>
+            <li>تراكم هائل لرسائل WhatsApp وصعوبة تتبعها.</li>
+            <li>صعوبة البحث داخل الملفات الداخلية وتشتت المعرفة.</li>
+            <li>الضغط المستمر على فرق الدعم الفني والمبيعات.</li>
+            <li>تشتت البيانات بين منصات متعددة.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="padding: 35px;">
+          <div class="badge badge-success">القطاعات المستهدفة</div>
+          <h3 style="font-size: 28px; margin-bottom: 20px;">القطاعات والأسواق الأكثر طلباً</h3>
+          <ul style="font-size: 18px; line-height: 2; margin-bottom: 20px;">
+            <li><strong>المراكز الطبية والعيادات:</strong> لتنظيم المواعيد والإجابة الفورية.</li>
+            <li><strong>شركات العقارات:</strong> للرد السريع على استفسارات المشاريع.</li>
+            <li><strong>المتاجر الإلكترونية:</strong> لتقديم دعم فني فوري للمشترين.</li>
+            <li><strong>الجامعات والمؤسسات التعليمية:</strong> للإجابة على أسئلة الطلاب.</li>
+            <li><strong>شركات الشحن واللوجستيات:</strong> لتتبع الشحنات والطلبات.</li>
+          </ul>
+          <p style="font-size: 17px; color: #a9b4c7; line-height: 1.6;">
+            بالإضافة لفرق خدمة العملاء وأقسام الموارد البشرية (HR) بالمؤسسات الكبيرة.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="grid" style="margin-top: 30px;">
+        <div class="card" style="padding: 30px; grid-column: span 2;">
+          <div class="badge">المرحلة الأولى والثانية</div>
+          <h3 style="font-size: 26px; margin-bottom: 15px;">بداية رحلة العميل: الاهتمام والتجربة</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+              <strong style="color: #9d90ff; font-size: 18px; display: block; margin-bottom: 8px;">1. مرحلة الاهتمام
+                (Attention)</strong>
+              <p style="font-size: 17px; color: #cbd5e0; line-height: 1.8;">
+                يبدأ العميل رحلته برؤية إعلان ممول، فيديو Demo للمنصة، أو منشور مهني على LinkedIn يركز على فوائد الذكاء
+                الاصطناعي. بعد ذلك يتوجه مباشرة إلى صفحة الهبوط (Landing Page) لتجربة النسخة التجريبية.
+              </p>
+            </div>
+            <div>
+              <strong style="color: #9d90ff; font-size: 18px; display: block; margin-bottom: 8px;">2. مرحلة التجربة (WOW
+                Moment)</strong>
+              <p style="font-size: 17px; color: #cbd5e0; line-height: 1.8;">
+                يقوم العميل برفع ملفاته الخاصة وتجربة الـ AI بنفسه. هنا يختبر دقة الردود باللغة العربية وسرعة المنصة
+                الفائقة، مما يولد لديه لحظة إعجاب سريعة (WOW Moment) تدفعه للاقتناع بمدى فاعلية وقيمة المنتج.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 8: STEP 05 - PART 2 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 05 (2/2) • FOLLOW-UP & TRUST</div>
+        <div><strong>Lumina AI</strong> — Marketing Strategy</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 05 — Lead Nurturing System • الجزء الثاني</h1>
+
+      <p class="section-subtitle">
+        نظام المتابعة الآلية وبناء الثقة عبر مقارنة القيمة والرسائل التسويقية الأساسية.
+      </p>
+
+      <div class="grid-3">
+
+        <!-- Column 1: Email Automation -->
+        <div class="card">
+          <div class="badge">المتابعة عبر البريد الإلكتروني</div>
+          <h3 style="font-size: 22px; margin-bottom: 15px;">Email Follow-Up</h3>
+          <ul style="font-size: 16px; line-height: 1.8; list-style: none; padding: 0;">
+            <li style="margin-bottom: 12px;">
+              <strong style="color: #9d90ff; display: block; font-size: 18px;">اليوم 1: رسالة ترحيبية</strong>
+              شرح سريع للمنصة وكيفية البدء مع رابط مباشر لإعادة التجربة.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong style="color: #9d90ff; display: block; font-size: 18px;">اليوم 2: حالات استخدام</strong>
+              عرض سيناريوهات حقيقية للرد الآلي وتكامل WhatsApp والبحث.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong style="color: #9d90ff; display: block; font-size: 18px;">اليوم 4: إثبات القيمة</strong>
+              التركيز على توفير الوقت وتقليل الضغط على فرق الدعم.
+            </li>
+            <li style="margin-bottom: 5px;">
+              <strong style="color: #9d90ff; display: block; font-size: 18px;">اليوم 6: التحويل الفعلي</strong>
+              دعوة العميل للاشتراك، حجز ديمو، أو التواصل مع المبيعات.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 2: WhatsApp Automation & Trust -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="badge badge-success">متابعة WhatsApp</div>
+            <h3 style="font-size: 22px; margin-bottom: 15px;">قوة الـ WhatsApp Follow-Up</h3>
+            <p style="font-size: 16px; color: #cbd5e0; line-height: 1.7; margin-bottom: 15px;">
+              نستخدم الواتساب للإجابة الفورية وتذكير العميل وحجز الاجتماعات نظراً لمعدل الفتح المرتفع وسرعة التحويل
+              بالسوق العربي.
+            </p>
+
+            <div class="badge">محتوى بناء الثقة</div>
+            <p style="font-size: 16px; color: #cbd5e0; line-height: 1.7;">
+              • <strong>فيديوهات ديمو قصيرة:</strong> توضح سرعة وسهولة الرد.<br>
+              • <strong>تجارب قطاعية حقيقية:</strong> مثل نجاح عيادة أو متجر إلكتروني.
+            </p>
+          </div>
+
+          <div class="quote" style="font-size: 16px; margin: 15px 0 0; padding: 15px; border-radius: 16px;">
+            <strong>استراتيجية التنمية:</strong>
+            بناء علاقة مستمرة وثقة قوية لضمان تحويل المهتمين إلى مشتركين دائمين.
+          </div>
+        </div>
+
+        <!-- Column 3: Before & After comparison -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="badge badge-alert">مقارنة القيمة المضافة</div>
+            <h3 style="font-size: 22px; margin-bottom: 15px;">قبل وبعد Lumina AI</h3>
+
+            <div class="comp-box comp-before" style="padding: 14px; border-radius: 14px; margin-bottom: 12px;">
+              <div class="comp-title" style="font-size: 16px; margin-bottom: 5px;">قبل الاستخدام</div>
+              <ul class="comp-list" style="font-size: 15px;">
+                <li>تأخير في الرد وضياع العملاء المهتمين.</li>
+                <li>ضغط هائل وتشتت البيانات وصعوبة البحث.</li>
+              </ul>
+            </div>
+
+            <div class="comp-box comp-after" style="padding: 14px; border-radius: 14px;">
+              <div class="comp-title" style="font-size: 16px; margin-bottom: 5px;">بعد الاستخدام</div>
+              <ul class="comp-list" style="font-size: 15px;">
+                <li>ردود فورية 24/7 بلغة عربية دقيقة.</li>
+                <li>توفير ساعات العمل وتنظيم مثالي للملفات.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Slogans, Priorities, & KPIs Row -->
+      <div style="margin-top: 25px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: start;">
+        <div>
+          <div class="badge">الرسائل التسويقية الأساسية</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="slogan-card" style="font-size: 16px; padding: 16px;">
+              "رد على عملائك فورًا باستخدام بيانات شركتك."
+            </div>
+            <div class="slogan-card" style="font-size: 16px; padding: 16px;">
+              "وفّر ساعات يوميًا في البحث داخل الملفات."
+            </div>
+            <div class="slogan-card" style="font-size: 16px; padding: 16px;">
+              "خدمة عملاء ذكية لموقعك وWhatsApp."
+            </div>
+            <div class="slogan-card" style="font-size: 16px; padding: 16px;">
+              "حوّل بيانات شركتك إلى مساعد ذكي."
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="badge">مؤشرات الأداء والأولويات الحالية</div>
+          <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 15px;">
+            <div class="score-boxes" style="margin-top: 0; grid-template-columns: 1fr; gap: 10px;">
+              <div class="score" style="padding: 14px; border-radius: 16px;">
+                <h4 style="font-size: 14px; margin-bottom: 4px;">Trial to Paid</h4>
+                <div class="number" style="font-size: 32px;">Conversion</div>
+              </div>
+              <div class="score" style="padding: 14px; border-radius: 16px;">
+                <h4 style="font-size: 14px; margin-bottom: 4px;">Response Time</h4>
+                <div class="number" style="font-size: 32px;">&lt; 2s</div>
+              </div>
+            </div>
+            <div
+              style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 18px; border-radius: 16px;">
+              <strong style="color: #9d90ff; font-size: 16px; display: block; margin-bottom: 8px;">الأولويات
+                الحالية:</strong>
+              <ul style="font-size: 14px; line-height: 1.6; padding-right: 12px;">
+                <li>تكامل WhatsApp بالكامل.</li>
+                <li>محتوى توضيح قوة العربية.</li>
+                <li>بناء Follow-Up مؤتمت.</li>
+                <li>تسريع الـ WOW Moment.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 9: STEP 06 - PART 1 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 06 (1/2) • PHILOSOPHY & DISCOVERY</div>
+        <div><strong>Lumina AI</strong> — Sales Strategy</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 06 — Sales Conversion Strategy • الجزء الأول</h1>
+
+      <p class="section-subtitle">
+        فلسفة المبيعات واكتشاف مشاكل العميل وربطها بالحلول التقنية لتهيئة لحظة الإعجاب (WOW Moment).
+      </p>
+
+      <div class="grid">
+
+        <div class="card" style="padding: 35px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="badge">فلسفة المبيعات</div>
+            <h3 style="font-size: 28px; margin-bottom: 18px;">بيع النتيجة وليس التقنية</h3>
+            <p style="font-size: 18px; color: #cbd5e0; line-height: 1.8; margin-bottom: 20px;">
+              العميل لا يشتري تعقيد الموديلات البرمجية أو الـ APIs، بل يشتري **حلولاً لمشاكله**.
+              لذا نركز على إبراز الفوائد المباشرة:
+            </p>
+            <ul style="font-size: 17px; line-height: 1.9; padding-right: 20px;">
+              <li>سرعة الرد الفوري على استفسارات المشترين.</li>
+              <li>توفير وقت الموظفين الثمين والجهد المكرر.</li>
+              <li>تنظيم مستندات الشركة والمعرفة الداخلية.</li>
+              <li>تقليل الضغط على فرق الدعم وزيادة رضا العملاء.</li>
+            </ul>
+          </div>
+          <div class="quote" style="margin-top: 25px; padding: 20px; font-size: 17px; border-radius: 16px;">
+            <strong>الهدف الحقيقي:</strong> توضيح القيمة العملية للعائد المالي وتوفير الوقت عوضاً عن المصطلحات التقنية
+            المعقدة.
+          </div>
+        </div>
+
+        <div class="card" style="padding: 35px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="badge badge-alert">رحلة تحويل العميل</div>
+            <h3 style="font-size: 28px; margin-bottom: 18px;">اكتشاف المشكلات وحلها</h3>
+            <p style="font-size: 18px; color: #a9b4c7; line-height: 1.7; margin-bottom: 15px;">
+              نبدأ بفهم المشكلة التشغيلية الفعلية داخل منظومة العميل ثم نربطها بحل مباشر من Lumina AI:
+            </p>
+
+            <div style="font-size: 17px; line-height: 1.8; display: flex; flex-direction: column; gap: 12px;">
+              <div>
+                <strong style="color: #ff6b6b;">• مشكلة تأخير رد خدمة العملاء:</strong>
+                <p style="color: #cbd5e0; margin-top: 2px;">الحل: تفعيل WhatsApp & Web AI Assistant الفوري.</p>
+              </div>
+              <div>
+                <strong style="color: #ff6b6b;">• مشكلة ضياع الوقت في البحث الداخلي:</strong>
+                <p style="color: #cbd5e0; margin-top: 2px;">الحل: محرك بحث ذكي مخصص ومدرّب على مستندات الشركة.</p>
+              </div>
+              <div>
+                <strong style="color: #ff6b6b;">• مشكلة ضغط الدعم في فترات الذروة:</strong>
+                <p style="color: #cbd5e0; margin-top: 2px;">الحل: الدعم الذاتي التلقائي مع خيار Human Handoff الذكي.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid" style="margin-top: 30px;">
+        <div class="card" style="padding: 30px; grid-column: span 2;">
+          <div class="badge badge-success">الـ WOW Moment أثناء الـ Demo</div>
+          <h3 style="font-size: 26px; margin-bottom: 15px;">خلق لحظة الإعجاب بالمنتج</h3>
+          <p style="font-size: 17px; color: #cbd5e0; line-height: 1.8;">
+            في هذه المرحلة، يجب أن يقوم العميل **برفع ملفاته بنفسه** وصياغة أسئلة حقيقية تدور حول أعماله ليرى دقة وسرعة
+            الردود على الفور عبر Widget الموقع أو تجربة WhatsApp.
+            أهم عناصر النجاح هنا هي: <strong>سرعة الـ Setup، جودة الرد، ودعم العربية واللهجات بواجهة مستخدم سهلة
+              ومريحة.</strong>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 10: STEP 06 - PART 2 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 06 (2/2) • OBJECTIONS & CLOSING</div>
+        <div><strong>Lumina AI</strong> — Sales Strategy</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 06 — Sales Conversion Strategy • الجزء الثاني</h1>
+
+      <p c <!-- Column 3: Closing -->
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div class="badge">أدوات إغلاق الصفقة</div>
+          <h3 style="font-size: 22px; margin-bottom: 15px;">أدوات التحويل الأساسية</h3>
+          <ul style="font-size: 16px; line-height: 1.8; padding-right: 15px; margin-bottom: 15px;">
+            <li><strong>Demo Meetings:</strong> شرح حي ومباشر للمنتج لحسم القرار.</li>
+            <li><strong>WhatsApp Sales:</strong> تواصل سريع ومستمر للإجابة المباشرة.</li>
+            <li><strong>Case Studies:</strong> عرض نتائج حقيقية وتجارب ناجحة سابقة.</li>
+            <li><strong>ROI Explanation:</strong> إبراز الفائدة المادية وساعات العمل الموفرة.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="badge">دعوة للقرار (CTA)</div>
+          <p style="font-size: 15px; color: #a9b4c7;">
+            توجيه العميل مباشرة للخطوة التالية: بدء الاشتراك الفوري، حجز اجتماع، أو بدء تجربة مدفوعة.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sales Tools, KPIs, & Priorities -->
+    <div style="margin-top: 25px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: start;">
+      <div>
+        <div class="badge">الرسائل البيعية الأساسية</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="slogan-card" style="font-size: 15px; padding: 14px;">
+            "رد على عملائك فورًا باستخدام بيانات شركتك."
+          </div>
+          <div class="slogan-card" style="font-size: 15px; padding: 14px;">
+            "حوّل بيانات شركتك إلى مساعد AI ذكي."
+          </div>
+          <div class="slogan-card" style="font-size: 15px; padding: 14px;">
+            "وفّر ساعات يوميًا في البحث داخل الملفات."
+          </div>
+          <div class="slogan-card" style="font-size: 15px; padding: 14px;">
+            "شغّل AI Assistant لشركتك خلال دقائق."
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="badge">مؤشرات النجاح والأولويات</div>
+        <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 15px;">
+          <div class="score-boxes" style="margin-top: 0; grid-template-columns: 1fr; gap: 10px;">
+            <div class="score" style="padding: 14px; border-radius: 16px;">
+              <h4 style="font-size: 14px; margin-bottom: 4px;">Trial to Paid</h4>
+              <div class="number" style="font-size: 32px;">Conversion</div>
+            </div>
+            <div class="score" style="padding: 14px; border-radius: 16px;">
+              <h4 style="font-size: 14px; margin-bottom: 4px;">Demo Close</h4>
+              <div class="number" style="font-size: 32px;">Rate</div>
+            </div>
+          </div>
+          <div
+            style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 18px; border-radius: 16px;">
+            <strong style="color: #9d90ff; font-size: 16px; display: block; margin-bottom: 8px;">الأولويات
+              الحالية:</strong>
+            <ul style="font-size: 14px; line-height: 1.6; padding-right: 12px;">
+              <li>إطلاق WhatsApp بالكامل.</li>
+              <li>إنشاء عروض ديمو قطاعية.</li>
+              <li>توثيق دراسات حالة (Case Studies).</li>
+              <li>تحسين صفحات العروض والبيع.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 11: STEP 07 - PART 1 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 07 (1/3) • ONBOARDING & WOW MOMENT</div>
+        <div><strong>Lumina AI</strong> — World-Class Experience</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 07 — World-Class Experience • الجزء الأول</h1>
+
+      <p class="section-subtitle">
+        تقديم تجربة تجعل العميل يقتنع بقيمة المنصة بسرعة ويشعر بسهولة الاستخدام، ليعتمد عليها كجزء أساسي من عمله ويرشحها
+        للآخرين.
+      </p>
+
+      <div class="quote" style="margin-top: 0; padding: 25px; border-radius: 16px;">
+        <strong style="color: #9d90ff; font-size: 20px;">الفكرة الأساسية:</strong>
+        <br><br>
+        النجاح لا يعتمد فقط على قوة الـ AI، بل يعتمد على: <strong>سهولة التجربة، سرعة النتائج، جودة الدعم، ووضوح
+          المنتج.</strong>
+        يجب أن يشعر العميل أن كل شيء سهل وسريع ومنظم.
+      </div>
+
+      <div class="grid">
+        <div class="card" style="padding: 30px;">
+          <div class="badge">المرحلة الأولى</div>
+          <h3 style="font-size: 24px; margin-bottom: 15px;">تجربة البداية (Onboarding)</h3>
+          <p style="font-size: 16px; color: #a9b4c7; margin-bottom: 15px;">الهدف: تشغيل العميل بأسرع وقت وأقل تعقيد.</p>
+          <ul style="font-size: 16px; line-height: 1.8;">
+            <li><strong>Dashboard واضحة:</strong> رفع الملفات، إنشاء Assistant، وتجربة الردود بسهولة.</li>
+            <li><strong>Setup سريع:</strong> تركيب الـ Widget وربط WhatsApp بدون تعقيد خلال دقائق.</li>
+            <li><strong>خطوات منظمة:</strong> رفع الملفات ← معالجة البيانات ← تجربة الـ AI ← تركيب الـ Widget.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="padding: 30px;">
+          <div class="badge badge-success">المرحلة الثانية</div>
+          <h3 style="font-size: 24px; margin-bottom: 15px;">خلق الـ WOW Moment</h3>
+          <p style="font-size: 16px; color: #a9b4c7; margin-bottom: 15px;">الهدف: إظهار قيمة المنتج بسرعة جدًا في أول
+            دقائق.</p>
+          <ul style="font-size: 16px; line-height: 1.8;">
+            <li>ردود سريعة وفهم حقيقي لبيانات الشركة.</li>
+            <li>دقة عالية في الإجابات دون أخطاء.</li>
+            <li>تجربة عربية قوية تدعم اللهجات بشكل طبيعي.</li>
+          </ul>
+          <div
+            style="margin-top: 15px; padding: 12px; background: rgba(78, 205, 196, 0.1); border-radius: 12px; color: #4ecdc4; font-size: 15px;">
+            كلما رأى العميل النتيجة في أول دقائق زادت ثقته واحتمالية اشتراكه.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 12: STEP 07 - PART 2 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 07 (2/3) • PERFORMANCE & DAILY USE</div>
+        <div><strong>Lumina AI</strong> — World-Class Experience</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 07 — World-Class Experience • الجزء الثاني</h1>
+
+      <p class="section-subtitle">
+        ضمان جودة الأداء، توفير دعم مستمر، وجعل المنصة جزءًا من الاستخدام اليومي للعميل مع إمكانية التخصيص الكامل.
+      </p>
+
+      <div class="grid-3" style="margin-top: 15px;">
+
+        <div class="card" style="padding: 25px;">
+          <div class="badge">المرحلة الثالثة: جودة الأداء</div>
+          <ul style="font-size: 15px; line-height: 1.7; margin-top: 15px; padding-right: 15px;">
+            <li><strong style="color: #9d90ff;">سرعة الرد:</strong> ردود سريعة ومستقرة وتقليل الـ Latency.</li>
+            <li><strong style="color: #9d90ff;">دقة النتائج:</strong> الرد من بيانات الشركة فقط وتقليل الـ
+              Hallucinations.</li>
+            <li><strong style="color: #9d90ff;">دعم العربية بقوة:</strong> فهم اللهجات والإجابة بشكل طبيعي.</li>
+            <li><strong style="color: #9d90ff;">استقرار النظام:</strong> تقليل الأعطال وضمان استمرارية الخدمة.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="padding: 25px;">
+          <div class="badge badge-success">المرحلة الرابعة: الدعم</div>
+          <h4 style="font-size: 17px; margin-bottom: 10px; margin-top: 15px;">قنوات الدعم الأساسية:</h4>
+          <ul style="font-size: 15px; line-height: 1.7; padding-right: 15px;">
+            <li><strong>WhatsApp Support:</strong> للدعم السريع الفوري.</li>
+            <li><strong>Support Tickets:</strong> للمشاكل التقنية والمتابعة.</li>
+            <li><strong>Email Support:</strong> للتواصل الرسمي.</li>
+          </ul>
+          <p style="font-size: 14px; color: #a9b4c7; margin-top: 10px;">المطلوب: سرعة الرد، احترافية، حلول سريعة ومتابعة
+            مستمرة.</p>
+        </div>
+
+        <div class="card" style="padding: 25px;">
+          <div class="badge badge-alert">المرحلتان الخامسة والسادسة</div>
+          <h4 style="font-size: 17px; margin-bottom: 10px; margin-top: 15px;">الاستخدام والتخصيص:</h4>
+          <ul style="font-size: 15px; line-height: 1.7; padding-right: 15px;">
+            <li><strong>الاستخدام اليومي:</strong> مساعدة العميل للوصول السريع للمعلومات وتقليل الوقت الضائع وتحسين
+              الإنتاجية.</li>
+            <li><strong>التخصيص:</strong> تغيير ألوان المنصة، إضافة Logo، Domain خاص، وتخصيص طريقة رد الـ Widget لتشعر
+              الشركة أن المنصة جزء منها.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 13: STEP 07 - PART 3 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 07 (3/3) • TRUST & RETENTION</div>
+        <div><strong>Lumina AI</strong> — World-Class Experience</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 07 — World-Class Experience • الجزء الثالث</h1>
+
+      <p class="section-subtitle">
+        بناء الثقة طويلة المدى، الحفاظ على العملاء، ومراقبة مؤشرات الأداء والأولويات لتحقيق النتيجة المتوقعة.
+      </p>
+
+      <div class="grid" style="margin-top: 15px;">
+        <div class="card" style="padding: 25px;">
+          <div class="badge">المرحلة السابعة: بناء الثقة</div>
+          <ul style="font-size: 16px; line-height: 1.8; margin-top: 15px;">
+            <li><strong>شفافية الاستهلاك:</strong> عرض عدد الرسائل، الـ Tokens، والـ Analytics بوضوح.</li>
+            <li><strong>تقارير الأداء:</strong> عرض معدل الاستخدام، أداء الـ AI، وأكثر الأسئلة تكراراً.</li>
+            <li><strong>تطوير مستمر:</strong> إضافة ميزات جديدة وتحسين أداء وعربية الـ AI.</li>
+          </ul>
+        </div>
+        <div class="card" style="padding: 25px;">
+          <div class="badge badge-success">المرحلة الثامنة: Retention</div>
+          <ul style="font-size: 16px; line-height: 1.8; margin-top: 15px;">
+            <li><strong>متابعة دورية:</strong> عبر Emails و WhatsApp وتحديثات المنتج.</li>
+            <li><strong>ميزات جديدة:</strong> Voice Features, Advanced Analytics.</li>
+            <li><strong>تحسين مستمر:</strong> بناءً على سلوك الاستخدام وملاحظات (Feedback) العملاء.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
+        <div>
+          <div class="badge">أهم عناصر نجاح التجربة</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+            <div class="slogan-card" style="font-size: 14px; padding: 12px;"><strong>السرعة:</strong> Setup والرد</div>
+            <div class="slogan-card" style="font-size: 14px; padding: 12px;"><strong>البساطة:</strong> واجهة سهلة</div>
+            <div class="slogan-card" style="font-size: 14px; padding: 12px;"><strong>الدقة:</strong> إجابات صحيحة</div>
+            <div class="slogan-card" style="font-size: 14px; padding: 12px;"><strong>الثقة:</strong> استقرار المنصة
+            </div>
+          </div>
+          <div class="badge badge-success" style="margin-bottom: 10px;">النتيجة المتوقعة</div>
+          <div
+            style="background: rgba(78, 205, 196, 0.05); border: 1px solid rgba(78, 205, 196, 0.2); padding: 15px; border-radius: 16px;">
+            <ul style="font-size: 14px; line-height: 1.6; color: #4ecdc4; padding-right: 15px;">
+              <li>الاعتماد على المنصة يوميًا.</li>
+              <li>الاستمرار في الاشتراك لفترة طويلة.</li>
+              <li>ترشيح المنصة لشركات أخرى.</li>
+              <li>Lumina AI جزء أساسي من التشغيل.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="badge badge-alert">الـ KPIs والأولويات</div>
+          <div
+            style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 18px; border-radius: 16px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+              <span
+                style="font-size: 12px; background: rgba(0,0,0,0.2); padding: 8px 10px; border-radius: 8px; color: #a9b4c7;">Customer
+                Satisfaction</span>
+              <span
+                style="font-size: 12px; background: rgba(0,0,0,0.2); padding: 8px 10px; border-radius: 8px; color: #a9b4c7;">Retention
+                & Churn</span>
+              <span
+                style="font-size: 12px; background: rgba(0,0,0,0.2); padding: 8px 10px; border-radius: 8px; color: #a9b4c7;">Daily
+                Active Users</span>
+              <span
+                style="font-size: 12px; background: rgba(0,0,0,0.2); padding: 8px 10px; border-radius: 8px; color: #a9b4c7;">WhatsApp
+                Engage</span>
+            </div>
+            <strong style="color: #9d90ff; font-size: 15px; display: block; margin-bottom: 8px;">الأولويات
+              الحالية:</strong>
+            <ul style="font-size: 14px; line-height: 1.6; padding-right: 15px;">
+              <li>إطلاق WhatsApp Integration بالكامل.</li>
+              <li>تحسين الـ Onboarding وتجربة البداية.</li>
+              <li>تحسين دقة العربية وجودة الردود.</li>
+              <li>بناء Support System سريع واحترافي.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 14: STEP 08 - PART 1 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 08 (1/3) • CORE AXES & UPSELL</div>
+        <div><strong>Lumina AI</strong> — Increase Customer Lifetime Value</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 08 — Customer Lifetime Value • الجزء الأول</h1>
+
+      <p class="section-subtitle">
+        زيادة قيمة العميل على المدى الطويل من خلال زيادة مدة اشتراكه، رفع استخدامه للمنصة، وتحويله إلى مصدر دخل مستمر
+        كعميل دائم.
+      </p>
+
+      <div class="quote" style="margin-top: 0; padding: 25px; border-radius: 16px;">
+        <strong style="color: #9d90ff; font-size: 20px;">الهدف الحقيقي:</strong>
+        <br><br>
+        ليس الهدف فقط الحصول على عميل جديد، بل تحويل Lumina AI من مجرد "أداة AI" إلى <strong>"جزء أساسي من تشغيل
+          الشركة"</strong>.
+      </div>
+
+      <div class="grid-3" style="margin-top: 20px;">
+        <div class="card" style="padding: 25px;">
+          <div class="badge">1. اعتماد العميل اليومي</div>
+          <h3 style="font-size: 20px; margin-bottom: 12px;">إدخال المنصة في العمليات</h3>
+          <ul style="font-size: 15px; line-height: 1.8;">
+            <li>الرد على العملاء و WhatsApp</li>
+            <li>البحث داخل الملفات</li>
+            <li>FAQ & Support Automation</li>
+          </ul>
+          <div
+            style="margin-top: 15px; padding: 12px; background: rgba(157, 144, 255, 0.1); border-radius: 10px; font-size: 14px; color: #d7e1ef;">
+            <strong>النتيجة:</strong> كلما زاد الاعتماد، قلت احتمالية الإلغاء وزادت قيمة العميل.
+          </div>
+        </div>
+
+        <div class="card" style="padding: 25px;">
+          <div class="badge badge-success">2. التوسع داخل الشركة</div>
+          <h3 style="font-size: 20px; margin-bottom: 12px;">إضافة فرق عمل جديدة</h3>
+          <ul style="font-size: 15px; line-height: 1.8;">
+            <li>فرق المبيعات والـ HR</li>
+            <li>إدارة المعرفة وتدريب الموظفين</li>
+            <li>البحث الداخلي للإدارات</li>
+          </ul>
+          <div
+            style="margin-top: 15px; padding: 12px; background: rgba(78, 205, 196, 0.1); border-radius: 10px; font-size: 14px; color: #4ecdc4;">
+            <strong>النتيجة:</strong> زيادة الاستخدام، عدد المستخدمين، وحجم الاشتراك.
+          </div>
+        </div>
+
+        <div class="card" style="padding: 25px;">
+          <div class="badge badge-alert">3. Upselling</div>
+          <h3 style="font-size: 20px; margin-bottom: 12px;">الترقية إلى خطط أعلى</h3>
+          <ul style="font-size: 15px; line-height: 1.8;">
+            <li>رفع Limits (Storage & Tokens)</li>
+            <li>WhatsApp AI & Advanced Analytics</li>
+            <li>API Usage & Custom Integrations</li>
+          </ul>
+          <div
+            style="margin-top: 15px; padding: 12px; background: rgba(255, 107, 107, 0.1); border-radius: 10px; font-size: 14px; color: #ff6b6b;">
+            <strong>الاستراتيجية:</strong> الاقتراح التلقائي عند زيادة الاستخدام.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 15: STEP 08 - PART 2 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 08 (2/3) • CROSS-SELL & COMMUNITY</div>
+        <div><strong>Lumina AI</strong> — Increase Customer Lifetime Value</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 08 — Customer Lifetime Value • الجزء الثاني</h1>
+
+      <p class="section-subtitle">
+        توفير خدمات إضافية، بناء مجتمع حول المنتج، وتحسين مستمر لتجربة العميل لضمان علاقة طويلة الأمد.
+      </p>
+
+      <div class="grid" style="margin-top: 15px;">
+        <div class="card" style="padding: 25px;">
+          <div class="badge">4. Cross-Selling (خدمات إضافية)</div>
+          <h3 style="font-size: 22px; margin-bottom: 15px;">بيع خدمات مرتبطة بالمنصة</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div>
+              <strong style="color: #9d90ff; display: block; margin-bottom: 5px;">خدمات Setup:</strong>
+              <p style="font-size: 14px; color: #cbd5e0; line-height: 1.6;">إعداد كامل للمنصة، تجهيز البيانات، وتدريب
+                الفريق.</p>
+            </div>
+            <div>
+              <strong style="color: #9d90ff; display: block; margin-bottom: 5px;">خدمات مخصصة:</strong>
+              <p style="font-size: 14px; color: #cbd5e0; line-height: 1.6;">تطوير Integrations، وحلول Automation، و
+                Custom AI Workflows.</p>
+            </div>
+            <div style="grid-column: span 2;">
+              <strong style="color: #9d90ff; display: block; margin-bottom: 5px;">خدمات استشارية:</strong>
+              <p style="font-size: 14px; color: #cbd5e0; line-height: 1.6;">وضع AI Strategy، تحسين خدمة العملاء، وتنظيم
+                المعرفة الداخلية.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 25px;">
+          <div class="badge badge-success">5. تحسين التجربة & تطوير المنتج</div>
+          <h3 style="font-size: 22px; margin-bottom: 15px;">تقليل الـ Churn وزيادة الرضا</h3>
+          <ul style="font-size: 15px; line-height: 1.8; padding-right: 15px;">
+            <li><strong>تحسين الأداء:</strong> سرعة الرد، دقة النتائج، دعم العربية، واستقرار النظام.</li>
+            <li><strong>تطوير مستمر:</strong> إضافة ميزات جديدة، تحسين نماذج الـ AI، و UI/UX.</li>
+            <li><strong>متابعة العملاء:</strong> جمع Feedback بشكل دوري، فهم المشاكل الحقيقية، وتطوير المنصة بناءً على
+              الاستخدام.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top: 25px; grid-template-columns: 1fr 1fr;">
+        <div class="card" style="padding: 25px;">
+          <div class="badge badge-alert">6. بناء علاقة طويلة المدى</div>
+          <ul style="font-size: 15px; line-height: 1.8; padding-right: 15px; margin-top: 15px;">
+            <li><strong>تواصل مستمر:</strong> Updates عبر Email و WhatsApp.</li>
+            <li><strong>مشاركة التطويرات:</strong> إرسال ميزات وحالات استخدام (Use Cases) جديدة.</li>
+            <li><strong>اهتمام خاص (للشركات الكبيرة):</strong> Dedicated Support واجتماعات دورية (Meetings).</li>
+          </ul>
+        </div>
+
+        <div class="card" style="padding: 25px;">
+          <div class="badge">7. بناء Community حول المنتج</div>
+          <ul style="font-size: 15px; line-height: 1.8; padding-right: 15px; margin-top: 15px;">
+            <li><strong>إنشاء محتوى مستمر:</strong> Tips, Tutorials، ومحتوى AI Business.</li>
+            <li><strong>مشاركة قصص النجاح:</strong> عرض نتائج حقيقية لشركات تستخدم المنصة وتحسينات فعلية تم تحقيقها.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 16: STEP 08 - PART 3 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 08 (3/3) • PRICING & KPIs</div>
+        <div><strong>Lumina AI</strong> — Increase Customer Lifetime Value</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 08 — Customer Lifetime Value • الجزء الثالث</h1>
+
+      <p class="section-subtitle">
+        هيكلة خطط الاشتراكات، مؤشرات الأداء الأساسية (KPIs)، والأولويات لتحقيق نمو مستقر وطويل المدى.
+      </p>
+
+      <div class="grid" style="margin-top: 15px; grid-template-columns: 1fr 1.5fr;">
+        <div class="card" style="padding: 25px;">
+          <div class="badge">8. نظام الخطط والاشتراكات</div>
+          <p style="font-size: 14px; color: #a9b4c7; margin-bottom: 15px;">الهدف: زيادة متوسط الإيرادات لكل عميل.</p>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div
+              style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 12px; border-right: 4px solid #4ecdc4;">
+              <strong style="display: block; font-size: 16px; color: white;">Starter Plan</strong>
+              <span style="font-size: 14px; color: #a9b4c7;">للشركات الصغيرة.</span>
+            </div>
+            <div
+              style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 12px; border-right: 4px solid #9d90ff;">
+              <strong style="display: block; font-size: 16px; color: white;">Business Plan</strong>
+              <span style="font-size: 14px; color: #a9b4c7;">للشركات المتوسطة.</span>
+            </div>
+            <div
+              style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 12px; border-right: 4px solid #ff6b6b;">
+              <strong style="display: block; font-size: 16px; color: white;">Enterprise Plan</strong>
+              <span style="font-size: 14px; color: #a9b4c7;">للشركات الكبيرة.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 25px;">
+          <div class="badge badge-success">أهم عوامل زيادة القيمة الدائمة</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+            <div>
+              <strong style="color: #4ecdc4; display: block; font-size: 16px;">1. الاعتماد اليومي:</strong>
+              <p style="font-size: 14px; color: #cbd5e0; margin-top: 4px;">الاستخدام المستمر يزيد احتمالية البقاء.</p>
+            </div>
+            <div>
+              <strong style="color: #4ecdc4; display: block; font-size: 16px;">2. سهولة الاستخدام:</strong>
+              <p style="font-size: 14px; color: #cbd5e0; margin-top: 4px;">واجهة بسيطة و Setup سهل وسريع.</p>
+            </div>
+            <div>
+              <strong style="color: #4ecdc4; display: block; font-size: 16px;">3. قوة العربية:</strong>
+              <p style="font-size: 14px; color: #cbd5e0; margin-top: 4px;">ميزة تنافسية قوية في السوق العربي.</p>
+            </div>
+            <div>
+              <strong style="color: #4ecdc4; display: block; font-size: 16px;">4. WhatsApp Integration:</strong>
+              <p style="font-size: 14px; color: #cbd5e0; margin-top: 4px;">أقوى ميزة لزيادة الاستخدام اليومي.</p>
+            </div>
+            <div style="grid-column: span 2;">
+              <strong style="color: #4ecdc4; display: block; font-size: 16px;">5. التطوير المستمر:</strong>
+              <p style="font-size: 14px; color: #cbd5e0; margin-top: 4px;">العملاء يستمرون عند رؤية التطور الدائم في
+                المنتج.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
+        <div>
+          <div class="badge badge-alert">الأولويات ومؤشرات الأداء (KPIs)</div>
+          <div
+            style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 18px; border-radius: 16px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+              <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px;">
+                <strong style="font-size: 13px; color: #ff6b6b; display: block;">Revenue KPIs:</strong>
+                <span style="font-size: 12px; color: #a9b4c7; display: block; margin-top: 4px;">CLV, ARPU, MRR</span>
+              </div>
+              <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px;">
+                <strong style="font-size: 13px; color: #4ecdc4; display: block;">Retention KPIs:</strong>
+                <span style="font-size: 12px; color: #a9b4c7; display: block; margin-top: 4px;">Retention/Churn Rate,
+                  Active Users</span>
+              </div>
+            </div>
+            <strong style="color: #9d90ff; font-size: 15px; display: block; margin-bottom: 8px;">الأولويات
+              الحالية:</strong>
+            <ul style="font-size: 14px; line-height: 1.6; padding-right: 15px;">
+              <li>إطلاق WhatsApp Integration بالكامل.</li>
+              <li>زيادة استخدام المنصة داخل الشركات الحالية.</li>
+              <li>إطلاق ميزات تساعد على الـ Upselling.</li>
+              <li>تحسين الـ Analytics و Usage Tracking.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="badge badge-success">النتيجة المتوقعة</div>
+          <div
+            style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(157, 144, 255, 0.05)); border: 1px solid rgba(78, 205, 196, 0.25); border-right: 4px solid #4ecdc4; padding: 25px; border-radius: 16px;">
+            <h4 style="font-size: 18px; color: white; margin-bottom: 15px;">بناء نظام يساعد Lumina AI على:</h4>
+            <ul style="font-size: 15px; line-height: 1.8; color: #d7e1ef; padding-right: 15px; font-weight: 600;">
+              <li>زيادة الإيرادات المستمرة.</li>
+              <li>تقليل فقدان العملاء (Churn).</li>
+              <li>زيادة مدة الاشتراك.</li>
+              <li>رفع قيمة كل عميل.</li>
+              <li style="margin-top: 8px; color: #4ecdc4;">بناء نمو مستقر وطويل المدى داخل السوق العربي.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 17: STEP 09 - PART 1 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 09 (1/3) • REFERRAL & TIMING</div>
+        <div><strong>Lumina AI</strong> — Referral Strategy</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 09 — Referral Strategy • الجزء الأول</h1>
+
+      <p class="section-subtitle">
+        تحويل العملاء الحاليين إلى مصدر دائم لجلب عملاء جدد من خلال التوصيات، الإحالات، والشراكات الفعالة.
+      </p>
+
+      <div class="quote" style="margin-top: 0; padding: 25px; border-radius: 16px;">
+        <strong style="color: #9d90ff; font-size: 20px;">الهدف الحقيقي:</strong>
+        <br><br>
+        أفضل عميل جديد هو: <strong>عميل جاء عن طريق توصية</strong>.<br>
+        لأن العميل المُحال: يثق أسرع، يتحول للاشتراك أسرع، تكلفته التسويقية أقل، ومعدل استمراره أعلى.
+      </div>
+
+      <div class="grid" style="margin-top: 20px; grid-template-columns: 1fr 1fr;">
+        <div class="card" style="padding: 25px;">
+          <div class="badge">1. تقديم تجربة قوية فعلًا</div>
+          <h3 style="font-size: 18px; margin-bottom: 12px;">الإحالات تبدأ من الانبهار بالمنتج</h3>
+          <p style="font-size: 14px; color: #a9b4c7; margin-bottom: 12px;">يجب أن تجعل العميل يقول: "لازم الشركة دي تجرب
+            النظام ده".</p>
+          <ul style="font-size: 15px; line-height: 1.8;">
+            <li><strong style="color: #4ecdc4;">سرعة الرد:</strong> إجابات فورية ودقيقة.</li>
+            <li><strong style="color: #4ecdc4;">قوة العربية:</strong> الفهم العميق للسياق العربي.</li>
+            <li><strong style="color: #4ecdc4;">سهولة الاستخدام:</strong> واجهة لا تحتاج لتدريب طويل.</li>
+            <li><strong style="color: #4ecdc4;">WhatsApp AI:</strong> الميزة الأكثر وضوحًا.</li>
+            <li><strong style="color: #4ecdc4;">توفير الوقت:</strong> أتمتة الردود وحل المشاكل.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="padding: 25px;">
+          <div class="badge badge-success">2. طلب الإحالة في الوقت المناسب</div>
+          <h3 style="font-size: 18px; margin-bottom: 12px;">التوقيت المثالي لطلب التوصية</h3>
+          <p style="font-size: 14px; color: #a9b4c7; margin-bottom: 12px;">اطلب الإحالة عندما يكون العميل في أعلى درجات
+            الرضا.</p>
+          <div
+            style="background: rgba(78, 205, 196, 0.05); padding: 15px; border-radius: 12px; border-right: 4px solid #4ecdc4;">
+            <strong style="color: white; display: block; margin-bottom: 8px;">متى تطلب؟</strong>
+            <ul style="font-size: 14px; line-height: 1.6; color: #d7e1ef; padding-right: 15px;">
+              <li>بعد أول شهر استخدام ناجح للمنصة.</li>
+              <li>بعد نجاح الـ Onboarding بالكامل.</li>
+              <li>بعد تحقيق نتيجة واضحة (توفير ساعات عمل).</li>
+              <li>عندما يختبر العميل (WOW Moment).</li>
+              <li>بعد Feedback إيجابي لخدمة الدعم الفني.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 18: STEP 09 - PART 2 -->
+  <section class="page page-break">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 09 (2/3) • PROGRAM & PARTNERS</div>
+        <div><strong>Lumina AI</strong> — Referral Strategy</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 09 — Referral Strategy • الجزء الثاني</h1>
+
+      <p class="section-subtitle">
+        بناء أنظمة واضحة للمكافآت، تحفيز الشركاء ليكونوا قنوات بيع مستمرة، وتعزيز الانتشار العضوي للمنتج.
+      </p>
+
+      <div class="grid" style="margin-top: 15px;">
+        <div class="card" style="padding: 25px;">
+          <div class="badge">3. إنشاء Referral Program واضح</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+            <div
+              style="background: rgba(157, 144, 255, 0.05); padding: 15px; border-radius: 12px; border: 1px solid rgba(157, 144, 255, 0.2);">
+              <strong style="color: #9d90ff; display: block; font-size: 16px; margin-bottom: 8px;">مكافآت العميل
+                الحالي:</strong>
+              <ul style="font-size: 14px; line-height: 1.8; color: #d7e1ef; padding-right: 15px;">
+                <li>خصم على الاشتراك الشهري.</li>
+                <li>شهر مجاني.</li>
+                <li>زيادة Usage Limits.</li>
+                <li>Tokens إضافية أو Features مجانية.</li>
+              </ul>
+              <div
+                style="margin-top: 10px; font-size: 13px; color: #9d90ff; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 6px;">
+                مثال: 20% خصم شهر كامل عن كل إحالة.</div>
+            </div>
+            <div
+              style="background: rgba(78, 205, 196, 0.05); padding: 15px; border-radius: 12px; border: 1px solid rgba(78, 205, 196, 0.2);">
+              <strong style="color: #4ecdc4; display: block; font-size: 16px; margin-bottom: 8px;">مكافآت العميل
+                الجديد:</strong>
+              <ul style="font-size: 14px; line-height: 1.8; color: #d7e1ef; padding-right: 15px;">
+                <li>خصم أول شهر.</li>
+                <li>Trial أطول (مثال: 14 يوم إضافي).</li>
+                <li>Setup مجاني.</li>
+                <li>Demo مخصص ومجاني.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top: 25px; grid-template-columns: 1fr 1fr;">
+        <div class="card" style="padding: 25px;">
+          <div class="badge badge-alert">4. تحفيز الشركات والشركاء</div>
+          <p style="font-size: 14px; color: #a9b4c7; margin-bottom: 12px;">نظام Partner Program يحول الشركاء إلى قناة
+            مبيعات مستمرة.</p>
+          <strong style="color: white; font-size: 15px; display: block; margin-bottom: 8px;">الفئات المستهدفة:</strong>
+          <ul style="font-size: 14px; line-height: 1.6; padding-right: 15px; margin-bottom: 15px;">
+            <li><strong>شركات التسويق والبرمجة:</strong> دمج Lumina AI لمشاريعهم وعملائهم.</li>
+            <li><strong>شركات خدمة العملاء:</strong> استخدام النظام لعملائهم.</li>
+            <li><strong>Freelancers & Agencies:</strong> دخل إضافي لهم.</li>
+          </ul>
+          <strong style="color: #ff6b6b; font-size: 15px; display: block; margin-bottom: 8px;">ماذا يحصل
+            الشريك؟</strong>
+          <ul style="font-size: 14px; line-height: 1.6; padding-right: 15px; color: #ff6b6b;">
+            <li>نسبة من الاشتراك وعمولة شهرية مستمرة.</li>
+            <li>Dashboard للشركاء و Referral Tracking.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="padding: 25px;">
+          <div class="badge">5. بناء الـ Word of Mouth</div>
+          <p style="font-size: 14px; color: #a9b4c7; margin-bottom: 12px;">جعل العملاء يتحدثون عن Lumina AI تلقائيًا.
+          </p>
+          <strong style="color: white; font-size: 15px; display: block; margin-bottom: 8px;">عوامل تساعد على
+            الانتشار:</strong>
+          <ul style="font-size: 15px; line-height: 1.8; padding-right: 15px; margin-top: 10px;">
+            <li><strong>WhatsApp AI:</strong> ميزة قوية وسهلة الملاحظة للجميع.</li>
+            <li><strong>قوة العربية:</strong> ميزة نادرة تجعل المنصة بارزة بين المنافسين.</li>
+            <li><strong>سرعة الـ Setup:</strong> الشركات تحب الحلول السريعة.</li>
+            <li><strong>سهولة الاستخدام:</strong> كلما كانت أبسط، زادت التوصيات التلقائية.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE 19: STEP 09 - PART 3 -->
+  <section class="page">
+
+    <div>
+      <div class="topbar">
+        <div>STEP 09 (3/3) • SOCIAL PROOF & KPIs</div>
+        <div><strong>Lumina AI</strong> — Referral Strategy</div>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="section-title">Step 09 — Referral Strategy • الجزء الثالث</h1>
+
+      <p class="section-subtitle">
+        استثمار قصص النجاح، تسهيل عملية مشاركة المنتج، وبناء مجتمع مترابط مع قياس مؤشرات الأداء للنمو العضوي.
+      </p>
+
+      <div class="grid-3" style="margin-top: 15px;">
+        <div class="card" style="padding: 20px;">
+          <div class="badge">6. قصص النجاح (Social Proof)</div>
+          <ul style="font-size: 14px; line-height: 1.8; padding-right: 15px; margin-top: 10px;">
+            <li><strong>Case Studies:</strong> عرض كيف استخدمت الشركة النظام، النتائج، والوقت الموفر.</li>
+            <li><strong>Testimonials:</strong> جمع المراجعات (Reviews)، فيديوهات قصيرة، وFeedback حقيقي.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="padding: 20px;">
+          <div class="badge badge-success">7. المتابعة & 8. تسهيل المشاركة</div>
+          <ul style="font-size: 14px; line-height: 1.8; padding-right: 15px; margin-top: 10px;">
+            <li><strong>متابعة دورية:</strong> عبر Email، WhatsApp، ومشاركة التحديثات الجديدة.</li>
+            <li><strong>تسهيل المشاركة:</strong> زر "Invite a Company" داخل الـ Dashboard. مشاركة رابط الـ Demo بسهولة.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card" style="padding: 20px;">
+          <div class="badge badge-alert">9. بناء مجتمع (Community)</div>
+          <ul style="font-size: 14px; line-height: 1.8; padding-right: 15px; margin-top: 10px;">
+            <li><strong>محتوى مستمر:</strong> AI Tips, Tutorials, Business Use Cases.</li>
+            <li><strong>مشاركة التطويرات:</strong> العملاء يحبون رؤية منتج يتطور باستمرار ويرتبطون به أكثر.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
+        <div>
+          <div class="badge badge-alert">الأولويات ومؤشرات الأداء (KPIs)</div>
+          <div
+            style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 18px; border-radius: 16px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+              <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px;">
+                <strong style="font-size: 13px; color: #ff6b6b; display: block;">Referral KPIs:</strong>
+                <span style="font-size: 12px; color: #a9b4c7; display: block; margin-top: 4px;">Referral Rate,
+                  Conversion Rate</span>
+              </div>
+              <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px;">
+                <strong style="font-size: 13px; color: #4ecdc4; display: block;">Growth KPIs:</strong>
+                <span style="font-size: 12px; color: #a9b4c7; display: block; margin-top: 4px;">Organic Growth, Partner
+                  Rev</span>
+              </div>
+            </div>
+            <strong style="color: #9d90ff; font-size: 15px; display: block; margin-bottom: 8px;">الأولويات
+              الحالية:</strong>
+            <ul style="font-size: 14px; line-height: 1.6; padding-right: 15px;">
+              <li>إنشاء Referral Program واضح.</li>
+              <li>إطلاق Partner Program.</li>
+              <li>إنشاء Case Studies حقيقية.</li>
+              <li>تحسين تجربة العملاء الحالية لزيادة التوصيات.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="badge badge-success">عوامل النجاح والنتيجة المتوقعة</div>
+          <div
+            style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(157, 144, 255, 0.05)); border: 1px solid rgba(78, 205, 196, 0.25); border-right: 4px solid #4ecdc4; padding: 25px; border-radius: 16px;">
+            <p style="font-size: 14px; color: #a9b4c7; margin-bottom: 15px; line-height: 1.6;">المنتج يجب أن يكون
+              ممتازاً، العميل يجب أن يرى قيمة حقيقية، التحفيز واضح، والمشاركة سهلة.</p>
+            <h4 style="font-size: 16px; color: white; margin-bottom: 10px;">النتيجة المتوقعة:</h4>
+            <ul style="font-size: 14px; line-height: 1.8; color: #d7e1ef; padding-right: 15px;">
+              <li>الحصول على عملاء جدد بتكلفة أقل.</li>
+              <li>زيادة الثقة والانتشار في السوق العربي.</li>
+              <li>تسريع النمو وبناء شبكة شركاء قوية.</li>
+              <li style="color: #4ecdc4; font-weight: bold; margin-top: 5px;">تحويل العملاء لوسيلة تسويق ونمو مستمرة.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="line"></div>
+
+      <div class="footer">
+        <div>AI Business Book</div>
+        <div class="tag">LUMINA AI</div>
+      </div>
+    </div>
+
+  </section>
+
+</body>
+
+</html>
